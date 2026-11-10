@@ -42,7 +42,7 @@ a{color:inherit}img{max-width:100%;height:auto}
 /* projetos */
 .sh{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}.pg .pc:nth-child(2){margin-top:4rem}
-.pi{overflow:hidden;aspect-ratio:7/6}.pi svg{display:block;width:100%;height:100%;transition:transform .9s var(--ease)}.pc:hover .pi svg{transform:scale(1.05)}
+.pi{overflow:hidden;aspect-ratio:7/5;background:var(--vd)}.pi svg,.pi img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .9s var(--ease)}.pc:hover .pi svg,.pc:hover .pi img{transform:scale(1.05)}
 .pm{padding-top:1.2rem}.pm h3{font-size:1.8rem;margin:.5rem 0}.pm p{margin:.3rem 0 .8rem}
 .tag{display:inline-block;font-size:.78rem;font-weight:600;border:1px solid currentColor;padding:.1rem .7rem}.tag.conceitual{color:var(--o)}.light .tag.conceitual{color:#8a6d2b}.tag.real{color:#7ec8a0}
 .note{margin-top:3rem}.flt{display:flex;gap:.6rem;margin-bottom:3rem;flex-wrap:wrap}.flt button{font:500 .95rem "Red Hat Display";background:none;border:1px solid var(--v);padding:.5rem 1.2rem;cursor:pointer;color:var(--v);transition:.3s}.flt button[aria-pressed=true],.flt button:hover{background:var(--v);color:var(--b)}
@@ -80,3 +80,7 @@ html{overflow-x:clip}h1,h2,h3{overflow-wrap:break-word;hyphens:none;text-wrap:ba
 .fg{grid-template-columns:1fr 1fr}.fg>div:first-child{grid-column:1/-1}.cta .btn{margin:0 1.5rem 1.2rem 0}}
 @media(max-width:480px){.fg{grid-template-columns:1fr}.hero .acts{gap:1.2rem}.btn{padding:.9rem 1.5rem}}
 @media(max-width:900px){.hero{align-items:flex-start;min-height:0;padding:1rem 0 3.5rem}.hero.sub{padding:1.5rem 0 3.5rem}.heroart{opacity:.12}.hero:not(.sub) .hl{margin-bottom:1.5rem}}
+.lk{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 2rem}.shot{margin:0}.shot.full{grid-column:1/-1}.shot img{display:block;width:100%;height:auto;border:1px solid #1d27242e}.shot figcaption{font-size:.9rem;color:var(--m);padding-top:.7rem}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:2.5rem 0 0}.meta dt{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--m)}.meta dd{margin:.25rem 0 0;font-weight:600}
+@media(max-width:700px){.shots{grid-template-columns:1fr}}

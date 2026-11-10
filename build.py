@@ -59,6 +59,16 @@ SERVICES = [
 STEPS=[("Imersão","Entender o negócio, seus objetivos e desafios."),("Estratégia","Definir posicionamento, estrutura e soluções."),("Desenvolvimento","Transformar a estratégia em uma experiência digital."),("Evolução","Acompanhar, analisar e aprimorar quando contratado.")]
 # Para adicionar projetos: acrescente um item. kind: "conceitual" ou "real". url vazio = sem link ainda.
 PROJECTS=[
+ dict(slug="still-point-tattoo",name="Still Point Tattoo",seg="Estúdio de tatuagem",cat="Site institucional",kind="real",url="https://stillpointtattoo.netlify.app/",cover="/assets/projetos/capa-still-point.webp",
+  desc="Site institucional para um estúdio de tatuagem em Santo André (SP), com apresentação do estúdio, tatuadores, trabalhos e contato direto por WhatsApp.",sol="Site institucional com formulário integrado ao WhatsApp",
+  about="O Still Point Tattoo é um estúdio privado em Santo André, SP. O site apresenta o conceito do estúdio, o time de tatuadores residentes, uma amostra dos trabalhos de cada profissional e um caminho direto para marcar horário. O formulário reúne nome, WhatsApp, ideia da tatuagem e região do corpo, e continua a conversa no WhatsApp, com consentimento de uso dos dados (LGPD).",
+  feats=["Identidade visual própria, com o símbolo do estúdio em destaque","Página do time, com perfil e portfólio de cada tatuador","Galeria de trabalhos","Formulário que continua a conversa no WhatsApp","Consentimento de uso de dados (LGPD)","Botão de agendamento sempre visível no menu"],
+  shots=[("/assets/projetos/still-point-home.webp","Página inicial",1400,637),("/assets/projetos/still-point-tatuadores.webp","Tatuadores",1400,636),("/assets/projetos/still-point-trabalhos.webp","Trabalhos",1400,622),("/assets/projetos/still-point-contato.webp","Contato e formulário",1400,630)]),
+ dict(slug="crm-still-point",name="CRM Still Point",seg="Estúdio de tatuagem",cat="CRM personalizado",kind="real",url="",nolink="Sistema de acesso restrito",cover="/assets/projetos/capa-crm-still-point.webp",
+  desc="CRM sob medida para organizar leads, agenda e clientes de um estúdio de tatuagem, com funil de atendimento do primeiro contato ao serviço concluído.",sol="CRM personalizado com funil, agenda e clientes",
+  about="Um sistema de uso interno desenvolvido para a rotina do estúdio. Reúne os contatos em um funil com etapas próprias (Novo, Conversando, Orçamento, Sinal pago, Agendado, Feito e Perdido), mostra os próximos atendimentos, lembra as mensagens que precisam ser enviadas e traz um resumo do período. A área exige login, por isso a imagem mostra apenas a tela de resumo, sem dados de clientes.",
+  feats=["Funil com sete etapas de atendimento","Agenda de atendimentos","Cadastro de clientes","Lista de mensagens a enviar no dia","Resumo com leads, agendamentos e conversão","Área com login"],
+  shots=[("/assets/projetos/crm-still-point-resumo.webp","Tela de resumo",1400,404)]),
  dict(name="Aurora Clínica",seg="Saúde e bem-estar",cat="Site institucional",kind="conceitual",url="",desc="Conceito de site institucional para clínica, com foco em acolhimento, clareza de serviços e agendamento.",sol="Site de 5 páginas, SEO local e formulário",art=1),
  dict(name="Atelier Norte",seg="Arquitetura e interiores",cat="Landing page",kind="conceitual",url="",desc="Conceito de landing page para escritório de arquitetura, com portfólio em destaque e contato direto.",sol="Landing page e página de destino para anúncios",art=2),
  dict(name="Casa Meridiana",seg="Gastronomia",cat="Reformulação",kind="conceitual",url="",desc="Conceito de reformulação para restaurante, com cardápio, reservas e presença no Google.",sol="Redesign, Perfil da Empresa no Google",art=3)]
@@ -99,9 +109,14 @@ def cta(t="Seu próximo passo começa com uma boa ideia.",p="Vamos conversar sob
     return f'<section class="dark cta"><div class="wrap">{ML}<h2 class="big">{t}</h2><p class="lead">{p}</p><a class="btn" href="/contato/">{b}</a>{link_wa()}</div></section>'
 
 def proj_card(p):
-    tag="Projeto conceitual" if p["kind"]=="conceitual" else "Projeto real"
-    lk=f'<a class="tl" href="{p["url"]}" rel="noopener" target="_blank">Visualizar projeto<span class="sr"> {E(p["name"])}</span></a>' if p["url"] else '<span class="sm mut">Prévia em breve</span>'
-    return f'''<article class="pc" data-kind="{p["kind"]}"><div class="pi">{art(p["art"])}</div><div class="pm"><span class="tag {p["kind"]}">{tag}</span><h3>{p["name"]}</h3><p class="sm mut">{p["seg"]} · {p["cat"]}</p><p>{p["desc"]}</p><p class="sm"><strong>Solução:</strong> {p["sol"]}</p>{lk}</div></article>'''
+    conc=p["kind"]=="conceitual"; tag="Projeto conceitual" if conc else "Projeto"
+    cover=f'<img src="{p["cover"]}" alt="Capa do projeto {E(p["name"])}" width="700" height="500" loading="lazy">' if p.get("cover") else art(p["art"])
+    lk=[]
+    if p.get("slug"): lk.append(f'<a class="tl" href="/projetos/{p["slug"]}/">Ver projeto<span class="sr"> {E(p["name"])}</span></a>')
+    if p.get("url"): lk.append(f'<a class="tl" href="{p["url"]}" rel="noopener" target="_blank">Visitar site<span class="sr"> {E(p["name"])}</span></a>')
+    elif p.get("nolink"): lk.append(f'<span class="sm mut">{p["nolink"]}</span>')
+    if not lk: lk.append('<span class="sm mut">Prévia em breve</span>')
+    return f'''<article class="pc" data-kind="{p["kind"]}"><div class="pi">{cover}</div><div class="pm"><span class="tag {p["kind"]}">{tag}</span><h3>{p["name"]}</h3><p class="sm mut">{p["seg"]} · {p["cat"]}</p><p>{p["desc"]}</p><p class="sm"><strong>Solução:</strong> {p["sol"]}</p><div class="lk">{"".join(lk)}</div></div></article>'''
 
 def home():
     rows=''.join(f'<a class="sr-row" href="/servicos/{s["slug"]}/"><span class="n">{s["n"]}</span><h3>{s["name"]}</h3><p>{s["short"]}</p>{STAR}</a>' for s in SERVICES)
@@ -111,7 +126,7 @@ def home():
 <p class="acts"><a class="btn" href="/contato/">Vamos conversar</a><a class="tl" href="/projetos/">Conheça nosso trabalho</a></p></div></section>
 <section class="light pad" id="apresentacao"><div class="wrap two"><h2 class="big">Presença digital com intenção.</h2><p class="lead">Cada negócio tem uma história, uma identidade e objetivos próprios. Nosso trabalho é transformar esses elementos em experiências digitais que comunicam com clareza, fortalecem a percepção da marca e aproximam empresas de novas oportunidades.</p></div></section>
 <section class="light pad nt" id="servicos"><div class="wrap"><h2 class="sec">Serviços</h2><div class="rows">{rows}</div></div></section>
-<section class="dark pad" id="projetos"><div class="wrap"><div class="sh"><h2 class="big">Projetos</h2><a class="tl" href="/projetos/">Ver todos os projetos</a></div><div class="pg">{''.join(proj_card(p) for p in PROJECTS)}</div><p class="sm mut note">Os projetos acima são conceituais, criados para demonstrar nossa abordagem. Não representam clientes reais nem resultados comerciais.</p></div></section>
+<section class="dark pad" id="projetos"><div class="wrap"><div class="sh"><h2 class="big">Projetos</h2><a class="tl" href="/projetos/">Ver todos os projetos</a></div><div class="pg">{''.join(proj_card(p) for p in PROJECTS[:3])}</div><p class="sm mut note">Projetos identificados como conceituais são criados para demonstrar nossa abordagem e não representam clientes reais nem resultados comerciais.</p></div></section>
 <section class="light pad" id="metodo"><div class="wrap"><h2 class="big">Pensamento estratégico.<br>Execução precisa.</h2><ol class="steps">{st}</ol></div></section>
 <section class="green pad" id="sobre"><div class="wrap two"><h2 class="big">Mais do que presença. Uma forma de se destacar.</h2><div class="lead"><p>A Lucentia Studio nasceu da ideia de que a presença digital de um negócio deve refletir a qualidade do que ele oferece.</p><p>Unimos estratégia, design e tecnologia para desenvolver soluções digitais que fazem sentido para cada empresa.</p><p>Acreditamos que bons projetos começam com boas perguntas, decisões inteligentes e atenção aos detalhes.</p></div></div><div class="wrap seal"><img class="biglogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="320" height="188" loading="lazy"></div></section>{cta()}'''
 
@@ -130,8 +145,8 @@ def service(s):
 
 def projetos():
     return f'''<section class="hero dark sub"><div class="wrap">{HL}<h1>Projetos</h1><p class="lead">Trabalhos conceituais e reais, identificados com clareza.</p></div></section>
-<section class="light pad"><div class="wrap"><div class="flt" role="group" aria-label="Filtrar projetos"><button aria-pressed="true" data-f="todos">Todos</button><button aria-pressed="false" data-f="conceitual">Conceituais</button><button aria-pressed="false" data-f="real">Reais</button></div>
-<div class="pg lt">{''.join(proj_card(p) for p in PROJECTS)}</div><p class="empty sm" hidden>Ainda não há projetos reais publicados nesta categoria.</p>
+<section class="light pad"><div class="wrap"><div class="flt" role="group" aria-label="Filtrar projetos"><button aria-pressed="true" data-f="todos">Todos</button><button aria-pressed="false" data-f="conceitual">Conceituais</button><button aria-pressed="false" data-f="real">Projetos</button></div>
+<div class="pg lt">{''.join(proj_card(p) for p in PROJECTS)}</div><p class="empty sm" hidden>Ainda não há projetos nesta categoria.</p>
 <p class="sm mut note">Projetos conceituais são criados pela Lucentia para demonstrar abordagem e não representam clientes reais ou resultados comerciais.</p></div></section>{cta()}'''
 
 def contato():
@@ -143,6 +158,16 @@ def contato():
 <label>Serviço de interesse<select name="servico">{opts}</select></label><label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label><button class="btn" type="submit">Enviar mensagem</button><p class="st sm" role="status" aria-live="polite"></p></form>
 <aside class="side"><h2 class="sec">Outros canais</h2>{side or '<p class="sm mut">Use o formulário e retornaremos em breve.</p>'}<img class="biglogo sd" src="/assets/logo-completo-verde.png" alt="Lucentia Studio" width="220" height="130" loading="lazy"></aside></div></section>'''
 
+def project_page(p):
+    shots="".join(f'<figure class="shot{" full" if i==0 else ""}"><img src="{src}" alt="{E(cap)} do projeto {E(p["name"])}" width="{w}" height="{h}" loading="lazy"><figcaption>{E(cap)}</figcaption></figure>' for i,(src,cap,w,h) in enumerate(p["shots"]))
+    visit=f'<a class="btn" href="{p["url"]}" rel="noopener" target="_blank">Visitar o site</a>' if p.get("url") else f'<span class="sm gold">{p.get("nolink","")}</span>'
+    ft="".join(f"<li>{x}</li>" for x in p["feats"])
+    meta="".join(f"<div><dt>{k}</dt><dd>{E(v)}</dd></div>" for k,v in [("Segmento",p["seg"]),("Categoria",p["cat"]),("Solução",p["sol"])])
+    return f'''<section class="hero dark sub"><div class="wrap">{HL}<p class="sm gold">{E(p["seg"])} · {E(p["cat"])}</p><h1>{E(p["name"])}</h1><p class="lead">{E(p["desc"])}</p><p class="acts">{visit}<a class="tl" href="/projetos/">Todos os projetos</a></p></div></section>
+<section class="light pad"><div class="wrap two"><h2 class="big">Sobre o projeto</h2><div><p class="lead">{E(p["about"])}</p><dl class="meta">{meta}</dl></div></div></section>
+<section class="green pad"><div class="wrap two"><h2 class="big">O que foi desenvolvido</h2><ul class="ls">{ft}</ul></div></section>
+<section class="light pad"><div class="wrap"><h2 class="sec">Imagens do projeto</h2><div class="shots">{shots}</div></div></section>{cta("Quer um projeto como este?","Conte sobre o seu negócio e vamos pensar na melhor solução.")}'''
+
 def write(p,c):
     f=DIST/p.strip("/")/"index.html" if p!="/404.html" else DIST/"404.html"; f.parent.mkdir(parents=True,exist_ok=True); f.write_text(c,encoding="utf-8")
 
@@ -152,6 +177,9 @@ write("/",page("/","Lucentia Studio | Estúdio de soluções digitais","Sites, S
 for s in SERVICES:
     p=f'/servicos/{s["slug"]}/'; urls.append(p); write(p,page(p,s["title"]+" | Lucentia Studio",s["desc"],service(s)))
 write("/projetos/",page("/projetos/","Projetos | Lucentia Studio","Projetos conceituais e reais desenvolvidos pela Lucentia Studio: sites, landing pages e reformulações.",projetos()))
+for p_ in PROJECTS:
+    if p_.get("slug"):
+        u=f'/projetos/{p_["slug"]}/'; urls.append(u); write(u,page(u,f'{p_["name"]}: {p_["cat"]} | Lucentia Studio',p_["desc"],project_page(p_)))
 write("/contato/",page("/contato/","Contato | Lucentia Studio","Conte sobre seu negócio e o que gostaria de desenvolver. Fale com a Lucentia Studio.",contato()))
 write("/obrigado/",page("/obrigado/","Mensagem enviada | Lucentia Studio","Recebemos sua mensagem.",'<section class="hero dark sub"><div class="wrap"><img class="biglogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="200" height="118"><h1>Mensagem enviada.</h1><p class="lead">Obrigado pelo contato. Retornaremos em breve.</p><p class="acts"><a class="btn" href="/">Voltar ao início</a></p></div></section>',noindex=True))
 write("/404.html",page("/404.html","Página não encontrada | Lucentia Studio","Página não encontrada.",'<section class="hero dark sub"><div class="wrap">'+HL+'<h1>Página não encontrada.</h1><p class="lead">O endereço pode ter mudado. Volte ao início ou veja nossos serviços.</p><p class="acts"><a class="btn" href="/">Voltar ao início</a></p></div></section>',noindex=True))
