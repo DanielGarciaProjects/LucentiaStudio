@@ -84,3 +84,5 @@ html{overflow-x:clip}h1,h2,h3{overflow-wrap:break-word;hyphens:none;text-wrap:ba
 .shots{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 2rem}.shot{margin:0}.shot.full{grid-column:1/-1}.shot img{display:block;width:100%;height:auto;border:1px solid #1d27242e}.shot figcaption{font-size:.9rem;color:var(--m);padding-top:.7rem}
 .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:2.5rem 0 0}.meta dt{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--m)}.meta dd{margin:.25rem 0 0;font-weight:600}
 @media(max-width:700px){.shots{grid-template-columns:1fr}}
+.eyebrow{font:500 .85rem "Red Hat Display",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin:0 0 1.6rem}
+.svl{margin:0 0 3rem}.how{list-style:none;padding:0;margin:2.5rem 0 0}.how li{border-top:1px solid #1d272433;padding:1.3rem 0}.how h3{font-size:1.6rem;margin:.4rem 0 .5rem}.how p{margin:0;color:var(--m)}

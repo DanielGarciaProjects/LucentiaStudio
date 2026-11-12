@@ -19,7 +19,7 @@ HL = '<img class="hl" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio"
 ML = '<img class="ml" src="/assets/monograma-dourado.png" alt="" width="56" height="55" loading="lazy">'
 
 SERVICES = [
- dict(slug="desenvolvimento-de-sites", n="01", name="Desenvolvimento de sites", short="Sites institucionais, landing pages e reformulação de sites existentes. Experiências digitais responsivas, estratégicas e alinhadas à identidade de cada negócio.",
+ dict(slug="desenvolvimento-de-sites", n="01", name="Desenvolvimento de sites", short="Criamos o site que apresenta sua empresa com clareza e leva o visitante a entrar em contato. Sites institucionais, landing pages e reformulações.",
   title="Desenvolvimento de sites institucionais e landing pages", desc="Criação de sites institucionais, landing pages e reformulação de sites com design autoral, responsivo e estruturado para buscas.",
   h1="Um site que sustenta a imagem do seu negócio.", lead="Sites institucionais, landing pages e reformulações pensados a partir da estratégia, e não de um modelo pronto.",
   about="Seu site é o lugar onde a percepção sobre o negócio se confirma ou se desfaz. Desenvolvemos cada projeto a partir do posicionamento, do público e do objetivo da empresa, com design sob medida, código limpo e estrutura preparada para ser encontrada.",
@@ -28,7 +28,7 @@ SERVICES = [
   benefits=["Identidade visual aplicada com consistência.","Layout responsivo, rápido e acessível.","Estrutura técnica preparada para SEO.","Caminhos claros até o contato."],
   inc=["Planejamento de estrutura e conteúdo","Design de interface sob medida","Desenvolvimento responsivo","Formulário de contato funcional","Configuração de SEO técnico e metadados","Integração com Google Analytics e Search Console","Publicação e orientação de uso"],
   faq=[("Quanto tempo leva um projeto?","Depende do escopo e da agilidade na entrega de conteúdos. Definimos o cronograma na etapa de estratégia, antes de iniciar o desenvolvimento."),("Posso atualizar o site depois?","Sim. Estruturamos o projeto para facilitar a manutenção e podemos combinar o acompanhamento contínuo."),("Vocês refazem sites que já existem?","Sim. Analisamos o que funciona, o que deve ser mantido e reconstruímos o restante com novo design e estrutura.")]),
- dict(slug="seo-e-presenca-digital", n="02", name="SEO e presença digital", short="Otimização para mecanismos de busca, SEO local e estruturação do Perfil da Empresa no Google. Mais oportunidades para que potenciais clientes encontrem o negócio.",
+ dict(slug="seo-e-presenca-digital", n="02", name="SEO e presença digital", short="Fazemos sua empresa aparecer quando clientes procuram o que você oferece, no Google e no Maps. SEO, SEO local e Perfil da Empresa no Google.",
   title="SEO e presença digital: SEO local e Perfil da Empresa no Google", desc="Otimização para buscas, SEO local, estruturação do Perfil da Empresa no Google e monitoramento de resultados.",
   h1="Seja encontrado por quem já procura o que você faz.", lead="SEO, presença local e Perfil da Empresa no Google organizados para que seu negócio apareça com clareza e relevância.",
   about="Muitos clientes começam a decisão em uma busca. Trabalhamos para que o negócio esteja bem estruturado, coerente e relevante nos lugares onde essa busca acontece. SEO é um processo contínuo e depende de vários fatores, por isso não prometemos posições específicas.",
@@ -37,7 +37,7 @@ SERVICES = [
   benefits=["Informações consistentes em todos os pontos de contato.","Base técnica sólida para crescer organicamente.","Decisões apoiadas em dados de busca.","Relatórios claros de acompanhamento."],
   inc=["Diagnóstico de presença digital","Pesquisa de palavras-chave","Otimização on-page e técnica","Estruturação do Perfil da Empresa no Google","Orientação de conteúdo","Configuração de Search Console e Analytics","Monitoramento e relatórios"],
   faq=[("Vocês garantem a primeira posição no Google?","Não. Nenhum profissional sério pode garantir posições. Trabalhamos para melhorar a estrutura e a relevância e acompanhamos os resultados."),("Em quanto tempo aparecem resultados?","SEO costuma levar semanas ou meses, conforme mercado, concorrência e estado atual do site."),("SEO local serve para qualquer negócio?","É mais indicado para quem atende clientes em uma região específica ou possui ponto físico.")]),
- dict(slug="crm-personalizado", n="03", name="Organização comercial e CRM", short="Desenvolvimento de CRMs personalizados para organizar contatos, oportunidades e processos comerciais, reduzindo a dispersão das informações.",
+ dict(slug="crm-personalizado", n="03", name="Organização comercial e CRM", short="Um sistema simples para reunir contatos, acompanhar cada oportunidade e não deixar ninguém sem resposta, feito sob medida para o seu processo.",
   title="CRM personalizado para organização comercial", desc="Desenvolvimento de CRM sob medida para organizar contatos, leads e oportunidades de acordo com o processo comercial de cada empresa.",
   h1="Cada contato no lugar certo, cada oportunidade à vista.", lead="Um CRM simples, desenhado a partir do processo comercial da sua empresa e não o contrário.",
   about="Planilhas, mensagens e anotações espalhadas fazem oportunidades se perderem. Desenvolvemos um sistema próprio, enxuto e adaptado ao seu jeito de vender, para concentrar contatos, histórico e próximos passos em um só lugar.",
@@ -46,7 +46,7 @@ SERVICES = [
   benefits=["Simplicidade de uso no dia a dia.","Etapas e campos adaptados ao seu processo.","Visão clara do funil comercial.","Base para crescer com organização."],
   inc=["Mapeamento do processo comercial","Definição de campos, etapas e permissões","Desenvolvimento do sistema","Importação de contatos existentes","Treinamento de uso","Suporte inicial pós-entrega"],
   faq=[("Por que não usar um CRM pronto?","Ferramentas prontas podem atender bem. Um CRM sob medida faz sentido quando seu processo tem particularidades ou quando você quer só o que realmente usa."),("O sistema funciona no celular?","Sim, a interface é pensada para uso em desktop e dispositivos móveis."),("Meus dados ficam seguros?","Aplicamos boas práticas de segurança e definimos acessos por perfil. Os detalhes são alinhados no projeto.")]),
- dict(slug="trafego-pago", n="04", name="Tráfego pago", short="Planejamento e gestão de campanhas no Google Ads e Meta Ads para ampliar o alcance e atrair potenciais clientes.",
+ dict(slug="trafego-pago", n="04", name="Tráfego pago", short="Anúncios no Google e na Meta que levam pessoas interessadas ao seu site ou WhatsApp. Planejamento, gestão e acompanhamento.",
   title="Tráfego pago: gestão de Google Ads e Meta Ads", desc="Planejamento e gestão de campanhas no Google Ads e Meta Ads, com segmentação, páginas de destino e acompanhamento.",
   h1="Alcance as pessoas certas, no momento certo.", lead="Campanhas no Google Ads e Meta Ads planejadas com estratégia, segmentação e acompanhamento constante.",
   about="Anúncios funcionam melhor quando há clareza sobre público, oferta e destino do clique. Planejamos e gerenciamos as campanhas e cuidamos da página de destino para que o investimento leve a contatos reais. O valor investido em mídia é pago diretamente às plataformas e é separado do serviço de gestão.",
@@ -56,7 +56,21 @@ SERVICES = [
   inc=["Planejamento e estrutura das campanhas","Definição de públicos e segmentações","Criação de anúncios e textos","Configuração de rastreamento e conversões","Recomendações para páginas de destino","Relatórios periódicos e otimizações"],
   faq=[("O investimento em anúncios está incluso?","Não. A verba de mídia é paga diretamente ao Google ou à Meta. O nosso serviço é o planejamento e a gestão."),("Quanto preciso investir?","Depende do mercado, da região e dos objetivos. Definimos uma faixa realista no planejamento."),("Vocês prometem número de clientes?","Não. Resultados variam por mercado e oferta. Acompanhamos e otimizamos com base em dados.")]),
 ]
-STEPS=[("Imersão","Entender o negócio, seus objetivos e desafios."),("Estratégia","Definir posicionamento, estrutura e soluções."),("Desenvolvimento","Transformar a estratégia em uma experiência digital."),("Evolução","Acompanhar, analisar e aprimorar quando contratado.")]
+STEPS=[("Imersão","Uma conversa para entender seu negócio, seu público e suas metas."),("Estratégia","Definimos posicionamento, estrutura e as soluções certas para o seu objetivo."),("Desenvolvimento","Transformamos a estratégia em site, campanhas ou sistema, com design e código sob medida."),("Evolução","Acompanhamos os resultados e fazemos melhorias, quando contratado.")]
+# Ordem dos serviços: site, SEO, tráfego pago, CRM (numeração automática)
+SERVICES[2],SERVICES[3]=SERVICES[3],SERVICES[2]
+for i_,s_ in enumerate(SERVICES): s_["n"]=f"0{i_+1}"
+FOCO={
+ "desenvolvimento-de-sites":("Para empresas e profissionais que precisam de um site novo ou querem renovar o atual para transmitir mais confiança e facilitar o contato.","Seus clientes entendem rápido o que você faz e encontram um caminho claro para falar com você, no computador e no celular."),
+ "seo-e-presenca-digital":("Para negócios que querem ser encontrados por quem já procura seus serviços no Google, em buscas gerais ou locais.","Sua empresa passa a ter informações organizadas e consistentes nos lugares onde os clientes pesquisam, com acompanhamento dos resultados. Não prometemos posições, mas trabalhamos para aumentar suas chances de ser encontrado."),
+ "crm-personalizado":("Para empresas que recebem contatos por WhatsApp, e-mail, redes sociais ou planilhas e querem ter tudo organizado em um só lugar.","Você sabe quem é cada contato, em que etapa ele está e qual é o próximo passo, e deixa de perder oportunidades por falta de acompanhamento."),
+ "trafego-pago":("Para empresas que querem alcançar novos clientes mais rápido e têm, ou querem ter, uma página ou um WhatsApp para receber os contatos.","Seus anúncios passam a ser planejados para o público certo, com acompanhamento dos resultados e ajustes ao longo da campanha. O investimento em mídia é pago à parte, direto às plataformas.")}
+FAQ_HOME='''<section class="light pad nt"><div class="wrap two"><h2 class="big">Perguntas frequentes</h2><div class="faq">
+<details><summary>Posso contratar só um serviço?</summary><p>Sim. Você pode contratar um serviço isolado ou combinar vários, conforme a necessidade do seu negócio.</p></details>
+<details><summary>Preciso ter um site para anunciar?</summary><p>Não é obrigatório: dá para direcionar os anúncios ao WhatsApp. Mas uma página bem feita costuma ajudar a transformar cliques em contatos.</p></details>
+<details><summary>Vocês atendem qualquer tipo de empresa?</summary><p>Atendemos empresas de diferentes segmentos que querem alcançar mais clientes e fortalecer a presença digital. Conte sobre o seu negócio e avaliamos a melhor solução.</p></details>
+<details><summary>Vocês garantem resultados?</summary><p>Não prometemos posições no Google nem número de clientes, porque os resultados dependem de mercado, concorrência e investimento. Trabalhamos com planejamento e acompanhamento.</p></details>
+<details><summary>Como começo a conversa?</summary><p>Pelo WhatsApp, por e-mail ou pelo formulário de contato. Você conta sobre o negócio e o que precisa.</p></details></div></div></section>'''
 # Para adicionar projetos: acrescente um item. kind: "conceitual" ou "real". url vazio = sem link ainda.
 PROJECTS=[
  dict(slug="still-point-tattoo",name="Still Point Tattoo",seg="Estúdio de tatuagem",cat="Site institucional",kind="real",url="https://stillpointtattoo.netlify.app/",cover="/assets/projetos/capa-still-point.webp",
@@ -100,7 +114,7 @@ def page(path,title,desc,body,schema=None,noindex=False):
 <header class="hd"><a class="logo" href="/" aria-label="Lucentia Studio, página inicial"><img src="/assets/monograma-dourado.png" alt="Lucentia Studio" width="47" height="46"></a>
 <button class="mt" aria-expanded="false" aria-controls="nav">Menu</button><nav id="nav" aria-label="Principal">{nav}</nav></header>
 <main id="main">{body}</main>
-<footer class="ft dark"><div class="wrap fg"><div><img class="flogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="220" height="130" loading="lazy"><p class="sm">Estúdio de soluções digitais.</p></div>
+<footer class="ft dark"><div class="wrap fg"><div><img class="flogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="220" height="130" loading="lazy"><p class="sm">Estúdio de soluções digitais: sites, SEO, CRM e tráfego pago.</p></div>
 <nav aria-label="Rodapé"><h2 class="fh">Navegação</h2><ul><li><a href="/">Início</a></li><li><a href="/projetos/">Projetos</a></li><li><a href="/#metodo">Método</a></li><li><a href="/contato/">Contato</a></li></ul></nav>
 <div><h2 class="fh">Serviços</h2><ul>{sv}</ul></div><div><h2 class="fh">Contato</h2><ul><li><a href="/contato/">Formulário</a></li>{soc}</ul></div></div>
 <div class="wrap cp sm">© {date.today().year} Lucentia Studio. Todos os direitos reservados.</div></footer><script src="/assets/main.js" defer></script></body></html>'''
@@ -121,22 +135,24 @@ def proj_card(p):
 def home():
     rows=''.join(f'<a class="sr-row" href="/servicos/{s["slug"]}/"><span class="n">{s["n"]}</span><h3>{s["name"]}</h3><p>{s["short"]}</p>{STAR}</a>' for s in SERVICES)
     st=''.join(f'<li><span class="n">0{i+1}</span><h3>{a}</h3><p>{b}</p></li>' for i,(a,b) in enumerate(STEPS))
-    return f'''<section class="hero dark"><div class="glow" aria-hidden="true"></div><div class="heroart" aria-hidden="true">{STAR}</div><div class="wrap">{HL}<h1>Mais visibilidade.<br>Mais oportunidades.</h1>
-<p class="lead">Desenvolvemos experiências digitais que fortalecem marcas, ampliam sua presença e transformam oportunidades em crescimento.</p>
-<p class="acts"><a class="btn" href="/contato/">Vamos conversar</a><a class="tl" href="/projetos/">Conheça nosso trabalho</a></p></div></section>
-<section class="light pad" id="apresentacao"><div class="wrap two"><h2 class="big">Presença digital com intenção.</h2><p class="lead">Cada negócio tem uma história, uma identidade e objetivos próprios. Nosso trabalho é transformar esses elementos em experiências digitais que comunicam com clareza, fortalecem a percepção da marca e aproximam empresas de novas oportunidades.</p></div></section>
-<section class="light pad nt" id="servicos"><div class="wrap"><h2 class="sec">Serviços</h2><div class="rows">{rows}</div></div></section>
+    return f'''<section class="hero dark"><div class="glow" aria-hidden="true"></div><div class="heroart" aria-hidden="true">{STAR}</div><div class="wrap">{HL}<p class="eyebrow">Sites · SEO · Tráfego pago · CRM</p><h1>Mais visibilidade.<br>Mais oportunidades.</h1>
+<p class="lead">Criamos sites, organizamos o comercial com CRM e ampliamos seu alcance com SEO e tráfego pago, para sua marca ser encontrada e transformar contatos em clientes.</p>
+<p class="acts"><a class="btn" href="/contato/">Vamos conversar</a><a class="tl" href="/projetos/">Ver projetos</a></p></div></section>
+<section class="light pad" id="apresentacao"><div class="wrap two"><h2 class="big">Ser encontrado.<br>Ser escolhido.<br>Não perder contatos.</h2><div><p class="lead">Cada negócio tem objetivos próprios. Por isso, cada projeto começa entendendo quem você é, quem você quer alcançar e o que precisa para crescer.</p><ol class="how"><li><span class="n">01</span><h3>Ser encontrado</h3><p>SEO e tráfego pago para colocar sua empresa diante de quem procura o que você oferece.</p></li><li><span class="n">02</span><h3>Passar confiança</h3><p>Um site claro e uma marca bem posicionada, que explicam o que você faz e convencem.</p></li><li><span class="n">03</span><h3>Não perder contatos</h3><p>Um CRM para reunir contatos e acompanhar cada oportunidade até o fechamento.</p></li></ol></div></div></section>
+<section class="light pad nt" id="servicos"><div class="wrap"><h2 class="sec">Serviços</h2><p class="lead svl">Quatro frentes que se complementam. Você pode contratar uma ou combinar várias.</p><div class="rows">{rows}</div></div></section>
 <section class="dark pad" id="projetos"><div class="wrap"><div class="sh"><h2 class="big">Projetos</h2><a class="tl" href="/projetos/">Ver todos os projetos</a></div><div class="pg">{''.join(proj_card(p) for p in PROJECTS[:3])}</div><p class="sm mut note">Projetos identificados como conceituais são criados para demonstrar nossa abordagem e não representam clientes reais nem resultados comerciais.</p></div></section>
 <section class="light pad" id="metodo"><div class="wrap"><h2 class="big">Pensamento estratégico.<br>Execução precisa.</h2><ol class="steps">{st}</ol></div></section>
-<section class="green pad" id="sobre"><div class="wrap two"><h2 class="big">Mais do que presença. Uma forma de se destacar.</h2><div class="lead"><p>A Lucentia Studio nasceu da ideia de que a presença digital de um negócio deve refletir a qualidade do que ele oferece.</p><p>Unimos estratégia, design e tecnologia para desenvolver soluções digitais que fazem sentido para cada empresa.</p><p>Acreditamos que bons projetos começam com boas perguntas, decisões inteligentes e atenção aos detalhes.</p></div></div><div class="wrap seal"><img class="biglogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="320" height="188" loading="lazy"></div></section>{cta()}'''
+<section class="green pad" id="sobre"><div class="wrap two"><h2 class="big">Mais do que presença. Uma forma de se destacar.</h2><div class="lead"><p>A Lucentia Studio nasceu da ideia de que a presença digital de um negócio deve refletir a qualidade do que ele oferece.</p><p>Unimos estratégia, design e tecnologia para desenvolver soluções digitais que fazem sentido para cada empresa.</p><p>Acreditamos que bons projetos começam com boas perguntas, decisões inteligentes e atenção aos detalhes.</p><p>Você pode contratar um serviço isolado ou combinar vários, conforme a necessidade do seu negócio.</p></div></div><div class="wrap seal"><img class="biglogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="320" height="188" loading="lazy"></div></section>{FAQ_HOME}{cta()}'''
 
 def service(s):
+    fo=FOCO[s["slug"]]
     L=lambda a:''.join(f'<li>{x}</li>' for x in a)
     ex=''.join(f'<div class="ex"><h3>{a}</h3><p>{b}</p></div>' for a,b in s["extra"])
     stp=''.join(f'<li><span class="n">0{i+1}</span><h3>{a}</h3><p>{b}</p></li>' for i,(a,b) in enumerate(STEPS[:3]+[("Entrega","Publicação, orientação de uso e definição dos próximos passos.")] ))
     fq=''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in s["faq"])
     return f'''<section class="hero dark sub"><div class="heroart" aria-hidden="true">{STAR}</div><div class="wrap">{HL}<p class="sm gold">{s["n"]} · {s["name"]}</p><h1>{s["h1"]}</h1><p class="lead">{s["lead"]}</p><p class="acts"><a class="btn" href="/contato/?servico={s["slug"]}">Solicitar conversa</a></p></div></section>
-<section class="light pad"><div class="wrap two"><h2 class="big">O serviço</h2><p class="lead">{s["about"]}</p></div></section>
+<section class="light pad"><div class="wrap two"><div><h2 class="sec">Para quem é</h2><p class="lead">{fo[0]}</p></div><div><h2 class="sec">O que muda no seu negócio</h2><p class="lead">{fo[1]}</p></div></div></section>
+<section class="light pad nt"><div class="wrap two"><h2 class="big">O serviço</h2><p class="lead">{s["about"]}</p></div></section>
 <section class="light pad nt"><div class="wrap"><h2 class="sec">{s["extra_t"]}</h2><div class="exg">{ex}</div></div></section>
 <section class="green pad"><div class="wrap two"><div><h2 class="sec">Problemas que resolve</h2><ul class="ls">{L(s["problems"])}</ul></div><div><h2 class="sec">Benefícios</h2><ul class="ls">{L(s["benefits"])}</ul></div></div></section>
 <section class="light pad"><div class="wrap two"><h2 class="big">O que está incluído</h2><ul class="ls dk">{L(s["inc"])}</ul></div></section>
@@ -152,7 +168,7 @@ def projetos():
 def contato():
     opts=''.join(f'<option value="{s["slug"]}">{s["name"]}</option>' for s in SERVICES)+'<option value="outro">Outro / ainda não sei</option>'
     side=''.join(x for x in [link_wa(), f'<a class="tl" href="{INSTAGRAM}" rel="noopener" target="_blank">Instagram</a>' if INSTAGRAM else "", f'<a class="tl" href="mailto:{EMAIL}">{EMAIL}</a>' if EMAIL else ""])
-    return f'''<section class="hero dark sub"><div class="wrap">{HL}<h1>Vamos conversar sobre seu próximo projeto.</h1><p class="lead">Conte um pouco sobre seu negócio e o que gostaria de desenvolver. Vamos entender suas necessidades e pensar na melhor solução.</p></div></section>
+    return f'''<section class="hero dark sub"><div class="wrap">{HL}<h1>Vamos conversar sobre seu próximo projeto.</h1><p class="lead">Conte um pouco sobre seu negócio e o que gostaria de desenvolver. Vamos entender suas necessidades e pensar na melhor solução. Você pode usar o formulário, o WhatsApp ou o e-mail.</p></div></section>
 <section class="light pad"><div class="wrap two"><form class="fm" name="contato" method="POST" action="/obrigado/" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="contato"><p class="hp"><label>Não preencha <input name="bot-field"></label></p>
 <label>Nome<input name="nome" required autocomplete="name"></label><label>Empresa<input name="empresa" autocomplete="organization"></label><label>E-mail<input type="email" name="email" required autocomplete="email"></label><label>WhatsApp<input type="tel" name="whatsapp" autocomplete="tel" placeholder="(DDD) 00000-0000"></label>
 <label>Serviço de interesse<select name="servico">{opts}</select></label><label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label><button class="btn" type="submit">Enviar mensagem</button><p class="st sm" role="status" aria-live="polite"></p></form>
@@ -173,7 +189,7 @@ def write(p,c):
 
 shutil.rmtree(DIST,ignore_errors=True); DIST.mkdir(); shutil.copytree(ROOT/"assets",DIST/"assets")
 urls=["/","/projetos/","/contato/"]
-write("/",page("/","Lucentia Studio | Estúdio de soluções digitais","Sites, SEO, CRM e tráfego pago com estratégia e design autoral. Mais visibilidade e mais oportunidades para o seu negócio.",home()))
+write("/",page("/","Lucentia Studio | Criação de sites, SEO, CRM e tráfego pago","Criamos sites, organizamos o comercial com CRM e ampliamos o alcance com SEO e tráfego pago para sua empresa fortalecer a marca e conquistar clientes.",home()))
 for s in SERVICES:
     p=f'/servicos/{s["slug"]}/'; urls.append(p); write(p,page(p,s["title"]+" | Lucentia Studio",s["desc"],service(s)))
 write("/projetos/",page("/projetos/","Projetos | Lucentia Studio","Projetos conceituais e reais desenvolvidos pela Lucentia Studio: sites, landing pages e reformulações.",projetos()))
