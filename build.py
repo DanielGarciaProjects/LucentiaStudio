@@ -83,9 +83,11 @@ PROJECTS=[
   about="Um sistema de uso interno desenvolvido para a rotina do estúdio. Reúne os contatos em um funil com etapas próprias (Novo, Conversando, Orçamento, Sinal pago, Agendado, Feito e Perdido), mostra os próximos atendimentos, lembra as mensagens que precisam ser enviadas e traz um resumo do período. A área exige login, por isso a imagem mostra apenas a tela de resumo, sem dados de clientes.",
   feats=["Funil com sete etapas de atendimento","Agenda de atendimentos","Cadastro de clientes","Lista de mensagens a enviar no dia","Resumo com leads, agendamentos e conversão","Área com login"],
   shots=[("/assets/projetos/crm-still-point-resumo.webp","Tela de resumo",1400,404)]),
- dict(name="Aurora Clínica",seg="Saúde e bem-estar",cat="Site institucional",kind="conceitual",url="",desc="Conceito de site institucional para clínica, com foco em acolhimento, clareza de serviços e agendamento.",sol="Site de 5 páginas, SEO local e formulário",art=1),
- dict(name="Atelier Norte",seg="Arquitetura e interiores",cat="Landing page",kind="conceitual",url="",desc="Conceito de landing page para escritório de arquitetura, com portfólio em destaque e contato direto.",sol="Landing page e página de destino para anúncios",art=2),
- dict(name="Casa Meridiana",seg="Gastronomia",cat="Reformulação",kind="conceitual",url="",desc="Conceito de reformulação para restaurante, com cardápio, reservas e presença no Google.",sol="Redesign, Perfil da Empresa no Google",art=3)]
+ # --- Exemplos conceituais (retirados do site). Para reativar, remova o "# " do início da linha e termine a linha anterior com vírgula. ---
+# dict(name="Aurora Clínica",seg="Saúde e bem-estar",cat="Site institucional",kind="conceitual",url="",desc="Conceito de site institucional para clínica, com foco em acolhimento, clareza de serviços e agendamento.",sol="Site de 5 páginas, SEO local e formulário",art=1),
+# dict(name="Atelier Norte",seg="Arquitetura e interiores",cat="Landing page",kind="conceitual",url="",desc="Conceito de landing page para escritório de arquitetura, com portfólio em destaque e contato direto.",sol="Landing page e página de destino para anúncios",art=2),
+# dict(name="Casa Meridiana",seg="Gastronomia",cat="Reformulação",kind="conceitual",url="",desc="Conceito de reformulação para restaurante, com cardápio, reservas e presença no Google.",sol="Redesign, Perfil da Empresa no Google",art=3)
+]
 
 def art(i):
     a={1:'<circle cx="260" cy="250" r="150" fill="none" stroke="#E4C78A" stroke-width="1.5"/><circle cx="340" cy="250" r="150" fill="none" stroke="#E4C78A" stroke-width="1.5" opacity=".5"/>',
@@ -132,6 +134,10 @@ def proj_card(p):
     if not lk: lk.append('<span class="sm mut">Prévia em breve</span>')
     return f'''<article class="pc" data-kind="{p["kind"]}"><div class="pi">{cover}</div><div class="pm"><span class="tag {p["kind"]}">{tag}</span><h3>{p["name"]}</h3><p class="sm mut">{p["seg"]} · {p["cat"]}</p><p>{p["desc"]}</p><p class="sm"><strong>Solução:</strong> {p["sol"]}</p><div class="lk">{"".join(lk)}</div></div></article>'''
 
+HAS_C=any(p["kind"]=="conceitual" for p in PROJECTS)
+NOTE='<p class="sm mut note">Projetos conceituais são criados pela Lucentia para demonstrar abordagem e não representam clientes reais ou resultados comerciais.</p>' if HAS_C else ''
+FLT='<div class="flt" role="group" aria-label="Filtrar projetos"><button aria-pressed="true" data-f="todos">Todos</button><button aria-pressed="false" data-f="real">Projetos</button><button aria-pressed="false" data-f="conceitual">Conceituais</button></div>' if HAS_C and any(p["kind"]=="real" for p in PROJECTS) else ''
+
 def home():
     rows=''.join(f'<a class="sr-row" href="/servicos/{s["slug"]}/"><span class="n">{s["n"]}</span><h3>{s["name"]}</h3><p>{s["short"]}</p>{STAR}</a>' for s in SERVICES)
     st=''.join(f'<li><span class="n">0{i+1}</span><h3>{a}</h3><p>{b}</p></li>' for i,(a,b) in enumerate(STEPS))
@@ -140,7 +146,7 @@ def home():
 <p class="acts"><a class="btn" href="/contato/">Vamos conversar</a><a class="tl" href="/projetos/">Ver projetos</a></p></div></section>
 <section class="light pad" id="apresentacao"><div class="wrap two"><h2 class="big">Ser encontrado.<br>Ser escolhido.<br>Não perder contatos.</h2><div><p class="lead">Cada negócio tem objetivos próprios. Por isso, cada projeto começa entendendo quem você é, quem você quer alcançar e o que precisa para crescer.</p><ol class="how"><li><span class="n">01</span><h3>Ser encontrado</h3><p>SEO e tráfego pago para colocar sua empresa diante de quem procura o que você oferece.</p></li><li><span class="n">02</span><h3>Passar confiança</h3><p>Um site claro e uma marca bem posicionada, que explicam o que você faz e convencem.</p></li><li><span class="n">03</span><h3>Não perder contatos</h3><p>Um CRM para reunir contatos e acompanhar cada oportunidade até o fechamento.</p></li></ol></div></div></section>
 <section class="light pad nt" id="servicos"><div class="wrap"><h2 class="sec">Serviços</h2><p class="lead svl">Quatro frentes que se complementam. Você pode contratar uma ou combinar várias.</p><div class="rows">{rows}</div></div></section>
-<section class="dark pad" id="projetos"><div class="wrap"><div class="sh"><h2 class="big">Projetos</h2><a class="tl" href="/projetos/">Ver todos os projetos</a></div><div class="pg">{''.join(proj_card(p) for p in PROJECTS[:3])}</div><p class="sm mut note">Projetos identificados como conceituais são criados para demonstrar nossa abordagem e não representam clientes reais nem resultados comerciais.</p></div></section>
+<section class="dark pad" id="projetos"><div class="wrap"><div class="sh"><h2 class="big">Projetos</h2><a class="tl" href="/projetos/">Ver todos os projetos</a></div><div class="pg n{min(len(PROJECTS),3)}">{''.join(proj_card(p) for p in PROJECTS[:3])}</div>{NOTE}</div></section>
 <section class="light pad" id="metodo"><div class="wrap"><h2 class="big">Pensamento estratégico.<br>Execução precisa.</h2><ol class="steps">{st}</ol></div></section>
 <section class="green pad" id="sobre"><div class="wrap two"><h2 class="big">Mais do que presença. Uma forma de se destacar.</h2><div class="lead"><p>A Lucentia Studio nasceu da ideia de que a presença digital de um negócio deve refletir a qualidade do que ele oferece.</p><p>Unimos estratégia, design e tecnologia para desenvolver soluções digitais que fazem sentido para cada empresa.</p><p>Acreditamos que bons projetos começam com boas perguntas, decisões inteligentes e atenção aos detalhes.</p><p>Você pode contratar um serviço isolado ou combinar vários, conforme a necessidade do seu negócio.</p></div></div><div class="wrap seal"><img class="biglogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="320" height="188" loading="lazy"></div></section>{FAQ_HOME}{cta()}'''
 
@@ -160,10 +166,10 @@ def service(s):
 <section class="light pad nt"><div class="wrap two"><h2 class="big">Perguntas frequentes</h2><div class="faq">{fq}</div></div></section>{cta("Vamos conversar sobre "+s["name"].lower()+".","Conte o que você precisa e indicamos o melhor caminho.","Fale com a Lucentia")}'''
 
 def projetos():
-    return f'''<section class="hero dark sub"><div class="wrap">{HL}<h1>Projetos</h1><p class="lead">Trabalhos conceituais e reais, identificados com clareza.</p></div></section>
-<section class="light pad"><div class="wrap"><div class="flt" role="group" aria-label="Filtrar projetos"><button aria-pressed="true" data-f="todos">Todos</button><button aria-pressed="false" data-f="conceitual">Conceituais</button><button aria-pressed="false" data-f="real">Projetos</button></div>
-<div class="pg lt">{''.join(proj_card(p) for p in PROJECTS)}</div><p class="empty sm" hidden>Ainda não há projetos nesta categoria.</p>
-<p class="sm mut note">Projetos conceituais são criados pela Lucentia para demonstrar abordagem e não representam clientes reais ou resultados comerciais.</p></div></section>{cta()}'''
+    return f'''<section class="hero dark sub"><div class="wrap">{HL}<h1>Projetos</h1><p class="lead">Alguns dos projetos desenvolvidos pela Lucentia Studio.</p></div></section>
+<section class="light pad"><div class="wrap">{FLT}
+<div class="pg lt n{len(PROJECTS)}">{''.join(proj_card(p) for p in PROJECTS)}</div><p class="empty sm" hidden>Ainda não há projetos nesta categoria.</p>
+{NOTE}</div></section>{cta()}'''
 
 def contato():
     opts=''.join(f'<option value="{s["slug"]}">{s["name"]}</option>' for s in SERVICES)+'<option value="outro">Outro / ainda não sei</option>'
@@ -192,7 +198,7 @@ urls=["/","/projetos/","/contato/"]
 write("/",page("/","Lucentia Studio | Criação de sites, SEO, CRM e tráfego pago","Criamos sites, organizamos o comercial com CRM e ampliamos o alcance com SEO e tráfego pago para sua empresa fortalecer a marca e conquistar clientes.",home()))
 for s in SERVICES:
     p=f'/servicos/{s["slug"]}/'; urls.append(p); write(p,page(p,s["title"]+" | Lucentia Studio",s["desc"],service(s)))
-write("/projetos/",page("/projetos/","Projetos | Lucentia Studio","Projetos conceituais e reais desenvolvidos pela Lucentia Studio: sites, landing pages e reformulações.",projetos()))
+write("/projetos/",page("/projetos/","Projetos | Lucentia Studio","Projetos desenvolvidos pela Lucentia Studio: site institucional, CRM personalizado e outras soluções digitais.",projetos()))
 for p_ in PROJECTS:
     if p_.get("slug"):
         u=f'/projetos/{p_["slug"]}/'; urls.append(u); write(u,page(u,f'{p_["name"]}: {p_["cat"]} | Lucentia Studio',p_["desc"],project_page(p_)))
