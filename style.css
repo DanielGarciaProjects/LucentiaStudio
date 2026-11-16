@@ -87,3 +87,9 @@ html{overflow-x:clip}h1,h2,h3{overflow-wrap:break-word;hyphens:none;text-wrap:ba
 .eyebrow{font:500 .85rem "Red Hat Display",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin:0 0 1.6rem}
 .svl{margin:0 0 3rem}.how{list-style:none;padding:0;margin:2.5rem 0 0}.how li{border-top:1px solid #1d272433;padding:1.3rem 0}.how h3{font-size:1.6rem;margin:.4rem 0 .5rem}.how p{margin:0;color:var(--m)}
 .pg.n2{grid-template-columns:repeat(2,1fr)}.pg.n1{grid-template-columns:minmax(0,640px)}@media(max-width:900px){.pg.n2,.pg.n1{grid-template-columns:1fr}}
+/* Menu Serviços com os 4 serviços */
+.dd{position:relative;padding:1.4rem 0;margin:-1.4rem 0}
+.ddm{position:absolute;top:100%;left:-1.2rem;min-width:320px;background:var(--v);border:1px solid #ffffff1f;padding:.5rem 0;display:none;flex-direction:column;z-index:60}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.hd nav .ddm a{background:none;padding:.75rem 1.2rem;white-space:nowrap}.hd nav .ddm a:hover,.hd nav .ddm a[aria-current]{color:var(--o)}
+@media(max-width:900px){.dd{padding:0;margin:0}.ddm{position:static;display:flex;min-width:0;border:0;padding:0 0 .6rem 1rem}.hd nav .ddm a{font-size:1.05rem;padding:.6rem 0;border-bottom:0;color:#cfd8d3}}

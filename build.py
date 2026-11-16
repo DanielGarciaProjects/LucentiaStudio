@@ -99,9 +99,16 @@ def art(i):
 def link_wa(t="Fale no WhatsApp"):
     return f'<a class="tl" href="https://wa.me/{WHATSAPP}" rel="noopener" target="_blank">{t}</a>' if WHATSAPP else ""
 
+def _nav(path):
+    sv=''.join('<a href="/servicos/%s/"%s>%s</a>'%(x["slug"]," aria-current=page" if path=="/servicos/%s/"%x["slug"] else "",x["name"]) for x in SERVICES)
+    out='<div class="dd"><a href="/#servicos"%s>Serviços</a><div class="ddm">%s</div></div>'%(" aria-current=true" if path.startswith("/servicos/") else "",sv)
+    for h,t in [("/projetos/","Projetos"),("/#metodo","Método"),("/#sobre","Sobre"),("/contato/","Contato")]:
+        out+='<a href="%s"%s>%s</a>'%(h," aria-current=page" if h==path else "",t)
+    return out
+
 def page(path,title,desc,body,schema=None,noindex=False):
     url=SITE_URL+path
-    nav=''.join(f'<a href="{h}"{" aria-current=page" if h==path else ""}>{t}</a>' for h,t in [("/servicos/desenvolvimento-de-sites/","Serviços"),("/projetos/","Projetos"),("/#metodo","Método"),("/#sobre","Sobre"),("/contato/","Contato")])
+    nav=_nav(path)
     ga=f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA4_ID}")</script>' if GA4_ID else ""
     ld=json.dumps({"@context":"https://schema.org","@type":"Organization","name":"Lucentia Studio","url":SITE_URL,"logo":SITE_URL+"/assets/logo-completo-ouro.png","description":"Estúdio de soluções digitais: sites, SEO, CRM e tráfego pago.",**({"sameAs":[INSTAGRAM]} if INSTAGRAM else {})},ensure_ascii=False)
     sv=''.join(f'<li><a href="/servicos/{s["slug"]}/">{s["name"]}</a></li>' for s in SERVICES)
