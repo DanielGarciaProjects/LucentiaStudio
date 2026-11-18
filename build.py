@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Lucentia Studio – gerador do site estático. Uso: python3 build.py  (saída em ./dist)"""
-import shutil, json, html, pathlib
+import shutil, json, html, pathlib, hashlib
 from datetime import date
 
 # ====== CONFIGURAÇÃO (edite aqui) ======
@@ -12,6 +12,8 @@ GA4_ID    = ""   # ex.: G-XXXXXXXXXX
 # =======================================
 
 ROOT = pathlib.Path(__file__).parent; DIST = ROOT/"dist"
+# versão dos arquivos de estilo/script: muda sozinha quando eles mudam, evitando cache antigo no navegador
+V = hashlib.md5((ROOT/"assets"/"style.css").read_bytes()+(ROOT/"assets"/"main.js").read_bytes()).hexdigest()[:8]
 E = html.escape
 STAR = '<svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C54 36 64 46 100 50 64 54 54 64 50 100 46 64 36 54 0 50 36 46 46 36 50 0Z"/></svg>'
 
@@ -117,7 +119,7 @@ def page(path,title,desc,body,schema=None,noindex=False):
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{'<meta name="robots" content="noindex">' if noindex else ''}
 <meta name="theme-color" content="#17352F"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Lucentia Studio"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{SITE_URL}/assets/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/assets/monograma-dourado.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Red+Hat+Display:wght@400;500;700&display=swap"><link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Red+Hat+Display:wght@400;500;700&display=swap"><link rel="stylesheet" href="/assets/style.css?v={V}">
 <script type="application/ld+json">{ld}</script>{ga}</head><body>
 <a class="skip" href="#main">Ir para o conteúdo</a>
 <header class="hd"><a class="logo" href="/" aria-label="Lucentia Studio, página inicial"><img src="/assets/monograma-dourado.png" alt="Lucentia Studio" width="47" height="46"></a>
@@ -126,7 +128,7 @@ def page(path,title,desc,body,schema=None,noindex=False):
 <footer class="ft dark"><div class="wrap fg"><div><img class="flogo" src="/assets/logo-completo-ouro.png" alt="Lucentia Studio" width="220" height="130" loading="lazy"><p class="sm">Estúdio de soluções digitais: sites, SEO, CRM e tráfego pago.</p></div>
 <nav aria-label="Rodapé"><h2 class="fh">Navegação</h2><ul><li><a href="/">Início</a></li><li><a href="/projetos/">Projetos</a></li><li><a href="/#metodo">Método</a></li><li><a href="/contato/">Contato</a></li></ul></nav>
 <div><h2 class="fh">Serviços</h2><ul>{sv}</ul></div><div><h2 class="fh">Contato</h2><ul><li><a href="/contato/">Formulário</a></li>{soc}</ul></div></div>
-<div class="wrap cp sm">© {date.today().year} Lucentia Studio. Todos os direitos reservados.</div></footer><script src="/assets/main.js" defer></script></body></html>'''
+<div class="wrap cp sm">© {date.today().year} Lucentia Studio. Todos os direitos reservados.</div></footer><script src="/assets/main.js?v={V}" defer></script></body></html>'''
 
 def cta(t="Seu próximo passo começa com uma boa ideia.",p="Vamos conversar sobre o que podemos construir para o seu negócio.",b="Fale com a Lucentia"):
     return f'<section class="dark cta"><div class="wrap">{ML}<h2 class="big">{t}</h2><p class="lead">{p}</p><a class="btn" href="/contato/">{b}</a>{link_wa()}</div></section>'
