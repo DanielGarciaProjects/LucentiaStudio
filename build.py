@@ -102,10 +102,11 @@ def link_wa(t="Fale no WhatsApp"):
     return f'<a class="tl" href="https://wa.me/{WHATSAPP}" rel="noopener" target="_blank">{t}</a>' if WHATSAPP else ""
 
 def _nav(path):
-    sv=''.join('<a href="/servicos/%s/"%s>%s</a>'%(x["slug"]," aria-current=page" if path=="/servicos/%s/"%x["slug"] else "",x["name"]) for x in SERVICES)
-    out='<div class="dd"><a href="/#servicos"%s>Serviços</a><div class="ddm">%s</div></div>'%(" aria-current=true" if path.startswith("/servicos/") else "",sv)
-    for h,t in [("/projetos/","Projetos"),("/#metodo","Método"),("/#sobre","Sobre"),("/contato/","Contato")]:
-        out+='<a href="%s"%s>%s</a>'%(h," aria-current=page" if h==path else "",t)
+    items=[("/#servicos","Serviços"),("/projetos/","Projetos"),("/#metodo","Método"),("/#sobre","Sobre"),("/contato/","Contato")]
+    out=""
+    for h,t in items:
+        cur=(path.startswith("/servicos/") if t=="Serviços" else h==path)
+        out+='<a href="%s"%s>%s</a>'%(h," aria-current=page" if cur else "",t)
     return out
 
 def page(path,title,desc,body,schema=None,noindex=False):
