@@ -86,3 +86,4 @@ html{overflow-x:clip}h1,h2,h3{overflow-wrap:break-word;hyphens:none;text-wrap:ba
 @media(max-width:700px){.shots{grid-template-columns:1fr}}
 .eyebrow{font:500 .85rem "Red Hat Display",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin:0 0 1.6rem}
 .svl{margin:0 0 3rem}.how{list-style:none;padding:0;margin:2.5rem 0 0}.how li{border-top:1px solid #1d272433;padding:1.3rem 0}.how h3{font-size:1.6rem;margin:.4rem 0 .5rem}.how p{margin:0;color:var(--m)}
+.pg.n2{grid-template-columns:repeat(2,1fr)}.pg.n1{grid-template-columns:minmax(0,640px)}@media(max-width:900px){.pg.n2,.pg.n1{grid-template-columns:1fr}}

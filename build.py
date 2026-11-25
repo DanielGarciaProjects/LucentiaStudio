@@ -85,6 +85,11 @@ PROJECTS=[
   about="Um sistema de uso interno desenvolvido para a rotina do estúdio. Reúne os contatos em um funil com etapas próprias (Novo, Conversando, Orçamento, Sinal pago, Agendado, Feito e Perdido), mostra os próximos atendimentos, lembra as mensagens que precisam ser enviadas e traz um resumo do período. A área exige login, por isso a imagem mostra apenas a tela de resumo, sem dados de clientes.",
   feats=["Funil com sete etapas de atendimento","Agenda de atendimentos","Cadastro de clientes","Lista de mensagens a enviar no dia","Resumo com leads, agendamentos e conversão","Área com login"],
   shots=[("/assets/projetos/crm-still-point-resumo.webp","Tela de resumo",1400,404)]),
+ dict(slug="paulo-tessarioli",name="Paulo Tessarioli",seg="Psicologia e terapia sexual",cat="Site institucional",kind="real",url="https://paulotessarioli.netlify.app/",cover="/assets/projetos/capa-paulo-tessarioli-site.webp",
+  desc="Site institucional para um psicólogo e terapeuta sexual em São Paulo, com apresentação do profissional, áreas de atuação, como o processo começa e contato direto por WhatsApp.",sol="Site institucional de página única com contato por WhatsApp",
+  about="Site de página única para o psicólogo e terapeuta sexual Paulo Tessarioli. Apresenta o profissional e as áreas de atuação, explica em quatro etapas como o processo começa, reúne as instituições e o conteúdo ligados ao trabalho e responde às perguntas mais comuns de quem pensa em iniciar a terapia. As informações de atendimento presencial e online, o sigilo e a ética profissional aparecem com destaque, e o contato leva direto ao WhatsApp.",
+  feats=["Apresentação do profissional e das áreas de atuação","Passo a passo de como o processo começa","Instituições e conteúdo relacionados ao trabalho","Perguntas frequentes","Informações de atendimento presencial e online","Contato direto por WhatsApp","Destaque para ética, sigilo e registro profissional"],
+  shots=[("/assets/projetos/paulo-tessarioli-home.webp","Página inicial",1400,586)]),
  # --- Exemplos conceituais (retirados do site). Para reativar, remova o "# " do início da linha e termine a linha anterior com vírgula. ---
 # dict(name="Aurora Clínica",seg="Saúde e bem-estar",cat="Site institucional",kind="conceitual",url="",desc="Conceito de site institucional para clínica, com foco em acolhimento, clareza de serviços e agendamento.",sol="Site de 5 páginas, SEO local e formulário",art=1),
 # dict(name="Atelier Norte",seg="Arquitetura e interiores",cat="Landing page",kind="conceitual",url="",desc="Conceito de landing page para escritório de arquitetura, com portfólio em destaque e contato direto.",sol="Landing page e página de destino para anúncios",art=2),
@@ -193,12 +198,13 @@ def contato():
 def project_page(p):
     shots="".join(f'<figure class="shot{" full" if i==0 else ""}"><img src="{src}" alt="{E(cap)} do projeto {E(p["name"])}" width="{w}" height="{h}" loading="lazy"><figcaption>{E(cap)}</figcaption></figure>' for i,(src,cap,w,h) in enumerate(p["shots"]))
     visit=f'<a class="btn" href="{p["url"]}" rel="noopener" target="_blank">Visitar o site</a>' if p.get("url") else f'<span class="sm gold">{p.get("nolink","")}</span>'
+    gal=f'<section class="light pad"><div class="wrap"><h2 class="sec">Imagens do projeto</h2><div class="shots">{shots}</div></div></section>' if p["shots"] else ""
     ft="".join(f"<li>{x}</li>" for x in p["feats"])
     meta="".join(f"<div><dt>{k}</dt><dd>{E(v)}</dd></div>" for k,v in [("Segmento",p["seg"]),("Categoria",p["cat"]),("Solução",p["sol"])])
     return f'''<section class="hero dark sub"><div class="wrap">{HL}<p class="sm gold">{E(p["seg"])} · {E(p["cat"])}</p><h1>{E(p["name"])}</h1><p class="lead">{E(p["desc"])}</p><p class="acts">{visit}<a class="tl" href="/projetos/">Todos os projetos</a></p></div></section>
 <section class="light pad"><div class="wrap two"><h2 class="big">Sobre o projeto</h2><div><p class="lead">{E(p["about"])}</p><dl class="meta">{meta}</dl></div></div></section>
 <section class="green pad"><div class="wrap two"><h2 class="big">O que foi desenvolvido</h2><ul class="ls">{ft}</ul></div></section>
-<section class="light pad"><div class="wrap"><h2 class="sec">Imagens do projeto</h2><div class="shots">{shots}</div></div></section>{cta("Quer um projeto como este?","Conte sobre o seu negócio e vamos pensar na melhor solução.")}'''
+{gal}{cta("Quer um projeto como este?","Conte sobre o seu negócio e vamos pensar na melhor solução.")}'''
 
 def write(p,c):
     f=DIST/p.strip("/")/"index.html" if p!="/404.html" else DIST/"404.html"; f.parent.mkdir(parents=True,exist_ok=True); f.write_text(c,encoding="utf-8")
